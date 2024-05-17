@@ -1,0 +1,9 @@
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-content">
+  <h2>Add Funds</h2>
+  <input type="number" [(ngModel)]="amount" placeholder="Enter amount" />
+  <div class="modal-buttons">
+    <button (click)="addFunds()">Add</button>
+    <button (click)="closeModal()">Cancel</button>
+  </div>
+</div>

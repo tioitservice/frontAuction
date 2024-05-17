@@ -1,0 +1,37 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.nav-left a {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-center a, .nav-right a, .nav-right span {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+a:hover, span:hover {
+  text-decoration: underline;
+}

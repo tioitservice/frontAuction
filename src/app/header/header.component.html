@@ -1,0 +1,19 @@
+<nav class="header-container">
+  <div class="nav-left">
+    <a routerLink="/available-products">Action Hub</a>
+  </div>
+  <div class="nav-center">
+    <a routerLink="/add-product">Add Product</a>
+    <a routerLink="/sold-products">Sold Products</a>
+    <a routerLink="/unsold-products">UnSold Products</a>
+    <a routerLink="/user-available-product">Available Products</a>
+  </div>
+  <div class="nav-right">
+    <span>{{ username }}</span>
+    <img src="../../assets/wallet.png" alt="Wallet" class="wallet-icon" (click)="openModal()">
+    <span (click)="openModal()">${{ walletAmount }}</span>
+    <a (click)="logout()">Log Out</a>
+  </div>
+</nav>
+
+<app-modal *ngIf="showModal" (close)="closeModal()"></app-modal>

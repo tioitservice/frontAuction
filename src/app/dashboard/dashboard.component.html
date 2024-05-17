@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+    <h2>Available Products</h2>
+    <div class="products">
+      <div class="product-card" *ngFor="let product of products" (click)="handleProductClick(product.id)">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+      </div>
+    </div>
+  
+    <div class="modal" *ngIf="showModal">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h3>Please Login First</h3>
+        <button (click)="goToLogin()">Go to Login</button>
+      </div>
+    </div>
+  </div>
+  

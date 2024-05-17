@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div *ngIf="product" class="product-detail-card">
+    <div class="card">
+      <div class="card-header">
+        <h2>{{ product.name }}</h2>
+      </div>
+      <div class="card-body">
+        <p><strong>Description:</strong> {{ product.description }}</p>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <p><strong>Status:</strong> {{ product.status }}</p>
+        <p><strong>Created Date:</strong> {{ product.createdDate | date:'medium' }}</p>
+        <p><strong>End Date:</strong> {{ product.endDate | date:'medium' }}</p>
+        <!-- <p><strong>Time Left:</strong> {{ timeLeft }}</p> -->
+        <div *ngIf="product.seller">
+          <h3>Seller Details:</h3>
+          <p><strong>Username:</strong> {{ product.seller.username }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bid-form">
+      <h3>Place a Bid</h3>
+      <form (ngSubmit)="placeBid()">
+        <div class="form-group">
+          <label for="bidAmount">Bid Amount:</label>
+          <input type="number" id="bidAmount" [(ngModel)]="bidAmount" name="bidAmount" required>
+        </div>
+        <button type="submit">Submit Bid</button>
+      </form>
+      <div *ngIf="responseMessage" class="response-message">
+        {{ responseMessage }}
+      </div>
+    </div>
+  
+    <div class="offers-list">
+      <h3>Offers</h3>
+      <div *ngFor="let offer of product.offers" class="offer-card">
+        <p><strong>Username:</strong> {{ offer.user.username }}</p>
+        <p><strong>Amount:</strong> ${{ offer.amount }}</p>
+        <p><strong>Status:</strong> {{ offer.status }}</p>
+        <p><strong>Date:</strong> {{ offer.dateTime | date:'medium' }}</p>
+      </div>
+    </div>
+  </div>
+  

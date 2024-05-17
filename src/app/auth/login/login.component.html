@@ -1,0 +1,23 @@
+<div class="login-container">
+    <div class="image-container">
+      <img src="https://images.pexels.com/photos/17668535/pexels-photo-17668535/free-photo-of-flowers-candles-and-fruits-on-an-outdoor-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Login Image">
+    </div>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" [(ngModel)]="loginData.username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="loginData.password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <p *ngIf="responseMessage" [ngClass]="{'response-message': isSuccess, 'error-message': !isSuccess}">
+        {{ responseMessage }}
+      </p>
+      <p>Don't have an account? <a routerLink="/register">Register</a></p>
+    </div>
+  </div>

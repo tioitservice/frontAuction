@@ -1,0 +1,33 @@
+<!-- <div class="available-products-container">
+    <h2>Available Products</h2>
+    <div class="product-card" *ngFor="let product of products">
+      <h3>{{ product.name }}</h3>
+      <p>Price: ${{ product.price }}</p>
+      <p>Time left: {{ product.timeLeft }}</p>
+      <button><a [routerLink]="['/product', product.id]">View Details</a> </button> 
+    </div>
+  </div>
+   -->
+   <app-header></app-header>
+<div class="available-products-container">
+  <h2>Auction Products</h2>
+  <div class="product-card">
+    <div *ngIf="products.length > 0">
+      <div *ngFor="let product of products">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price }}</p>
+        <p>Status: {{ product.status }}</p>
+        <p>Time left: {{ product.timeLeft }}</p>
+        <a [routerLink]="['/product', product.id]"
+           [attr.disabled]="product.timeLeft === 'Expired' ? true : null">
+          View Details
+        </a>
+        <hr>
+      </div>
+    </div>
+    <div *ngIf="products.length === 0">
+      <p>No Auction Products available.</p>
+    </div>
+  </div>
+</div>
